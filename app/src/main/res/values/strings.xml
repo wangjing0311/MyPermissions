@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">MyPermissions</string>
+
+    <!-- 权限管理 -->
+    <string name="permission_all">您已禁用应用所需权限，有些功能将无法使用，请返回重新尝试，并选择允许权限。</string>
+    <string name="permission_camera">您已禁用相机权限，无法使用本功能，请返回重新尝试，并选择允许相机权限。</string>
+    <string name="permission_read_exteranal_storage">您已禁用读取文件权限，无法使用本功能，请返回重新尝试，并选择允许读取文件权限。</string>
+    <string name="permission_write_exteranal_storage">您已禁用写文件权限，无法使用本功能，请返回重新尝试，并选择允许写文件权限。</string>
+    <string name="permission_read_phone_state">您已禁用使用电话权限，无法使用本功能，请返回重新尝试，并选择允许使用电话权限。</string>
+    <string name="permission_record_audio">您已禁用使用麦克风权限，无法使用本功能，请返回重新尝试，并选择允许使用麦克风权限。</string>
+    <string name="permission_living">相关权限获取失败，无法使用本功能，请返回重新尝试，并选择允许使用相关权限。</string>
 </resources>

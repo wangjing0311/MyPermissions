@@ -6,16 +6,14 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     private TextView tv;
     private static final int PERMISSIONS_REQUEST_TAKE_PHOTO = 1;
-    private static final int REQUECT_CODE_SDCARD = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,11 +23,22 @@ public class MainActivity extends AppCompatActivity {
         tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                checkAllowTakePicture();
-//                MPermissions.requestPermissions(MainActivity.this, REQUECT_CODE_SDCARD, Manifest.permission.WRITE_EXTERNAL_STORAGE);
-            }
+//                checkAllowTakePicture();
+                PermissionUtils.permisionIndexCount = PermissionUtils.PERMISSION_CAMERA;
+                PermissionUtils.requestToUserPermission(MainActivity.this, permissionsCallback);            }
         });
     }
+
+    private IPermissionsCallback permissionsCallback = new IPermissionsCallback() {
+        @Override
+        public void onResult(int permisionIndexCount) {
+            switch (permisionIndexCount) {
+                case 1:
+                    Toast.makeText(MainActivity.this,"拍照",Toast.LENGTH_LONG).show();
+                    break;
+            }
+        }
+    };
 
     //    @Override
 //    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
